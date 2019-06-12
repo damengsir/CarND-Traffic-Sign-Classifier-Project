@@ -1,4 +1,4 @@
-# **Traffic Sign Recognition** 
+# **Traffic Sign Recognition**
 
 ## Writeup
 
@@ -75,9 +75,9 @@ Third,I shuffled the training data.If not,A neural network might see the same ty
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x1 gray image   							| 
+| Layer         		|     Description	        					|
+|:---------------------:|:---------------------------------------------:|
+| Input         		| 32x32x1 gray image   							|
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
@@ -96,7 +96,7 @@ My final model consisted of the following layers:
 |	cross_entropy		|         |
 |	loss_operation		|						|
 |    Optimizer     |             AdamOptimizer            |  
- 
+
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
@@ -110,12 +110,12 @@ batch size: 60
 
 My final model results were:
 * training set accuracy of 98.6%
-* validation set accuracy of 93.1% 
+* validation set accuracy of 93.1%
 * test set accuracy of 90.9%
 
-1. I used the LeNet architecture. It is made up of several convolution layers, Pooling layers, and Fully connect layers. It can extract the features of the image very well. 
+1. I used the LeNet architecture. It is made up of several convolution layers, Pooling layers, and Fully connect layers. It can extract the features of the image very well.
 2. After using it, you will find that the accuracy of training set is very high, the accuracy of validation set is a little low.That's because, there is a overfitting on the training data.
-3.  I took a dropout method on the fully connect layers to solve the problem. 
+3.  I took a dropout method on the fully connect layers to solve the problem.
 4. At first, I put the RGB images into the net, the accuracy can get about  88%. In order to improve the accuracy and reduce the training time, I turn the images into gray and make them normalized.
 
 
@@ -125,7 +125,7 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
+![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8]
 
 The first image might be difficult to classify because there are many similar shapes on different speed.
@@ -134,22 +134,22 @@ The first image might be difficult to classify because there are many similar sh
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
+| Image			        |     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
 |   70 km/h            |             Ahead only              |
-| Ahead only      		|            Ahead only  						| 
+| Ahead only      		|            Ahead only  						|
 | Keep right    			| Keep right 									|
 | Stop     			  	| Yield											|
 | No vehicles      		| No vehicles			 				|
 
-The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. 
+The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 For the first image, the model is not very well, the top five images dose not contain it. It only learned a circle. The number 70 isn't learned. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 91%       			| Ahead only 									| 
+| Probability         	|    Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 91%       			| Ahead only 									|
 | 8%     				| Road work										|
 | 0				        | Traffic signals										|
 | 0	      			    | Yield			 				|
@@ -157,40 +157,43 @@ For the first image, the model is not very well, the top five images dose not co
 
 
 For the second image, the model is very robust. It have a 100% accuracy.
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 100%       			| Ahead only  									| 
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 100%       			| Ahead only  									|
 | 0       			    	| Yield									|
 | 0				        | Road work											|
 | 0	      			    | Priority road			 				|
 | 0			          | Bumpy road   							|
 
 For the third image, the model is very robust. It have a 100% accuracy.
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 100%       			| Keep right 									| 
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 100%       			| Keep right 									|
 | 0       			    	| Yield									|
 | 0				        | Turn left ahead										|
 | 0	      			    | Priority road			 				|
 | 0			             | Road work							|
 
 For the forth image, the model is very bad. There is no SOPE sign in the top images.
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 53%       			| Yield								| 
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 53%       			| Yield								|
 | 29%       	    	| Priority road									|
 | 11%				        | No passing									|
 | 5%	      			    | Ahead only		 				|
 | 1%			          | Turn left ahead  							|
 
-For the fifth image,  the model is very robust. It have a 100% accuracy. 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 100%       			| No vehicles									| 
+For the fifth image,  the model is very robust. It have a 100% accuracy.
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 100%       			| No vehicles									|
 | 0       			    	| No passing									|
 | 0				        | Priority road										|
 | 0	      			    | Roundabout mandatory				 				|
 | 0			           |  Speed limit (100km/h)						|
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
